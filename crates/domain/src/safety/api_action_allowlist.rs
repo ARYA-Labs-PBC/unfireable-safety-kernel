@@ -79,11 +79,11 @@ pub const API_ALLOWED_PREFIXES: &[&str] = &[
     // Telco vertical
     "/api/v1/telco/",
     // Vertical demos (built on demand; will move to runtime registration — see followup ticket)
-    "/api/v1/panasonic/",        // Panasonic vertical
-    "/api/v1/qcad/",             // D-Wave / quantum_computing (internal-ref)
-    "/api/v1/pulse/",            // D-Wave / quantum_computing (internal-ref)
-    "/api/v1/qec/",              // D-Wave / quantum_computing (internal-ref)
-    "/api/v1/wps/",              // Empulser / wireless_power_systems (internal-ref)
+    "/api/v1/panasonic/", // Panasonic vertical
+    "/api/v1/qcad/",      // D-Wave / quantum_computing (internal-ref)
+    "/api/v1/pulse/",     // D-Wave / quantum_computing (internal-ref)
+    "/api/v1/qec/",       // D-Wave / quantum_computing (internal-ref)
+    "/api/v1/wps/",       // Empulser / wireless_power_systems (internal-ref)
     // Metrics and system
     "/api/v1/metrics/",
     "/api/v1/system/",
