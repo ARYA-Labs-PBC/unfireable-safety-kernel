@@ -230,6 +230,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6"
 
 [[package]]
+name = "base64"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b25655df2c3cdd83c5e5b293b88acd880332b2ddadd7c30ac43144fdc0033da9"
+
+[[package]]
 name = "base64ct"
 version = "1.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1813,7 +1819,7 @@ name = "qorch-adapters"
 version = "0.1.0"
 dependencies = [
  "async-trait",
- "base64 0.22.1",
+ "base64 0.23.0",
  "qorch-application",
  "qorch-domain",
  "rand_core 0.6.4",
@@ -1841,7 +1847,7 @@ dependencies = [
 name = "qorch-domain"
 version = "0.1.0"
 dependencies = [
- "base64 0.22.1",
+ "base64 0.23.0",
  "ed25519-dalek",
  "hex",
  "serde",
@@ -1859,7 +1865,7 @@ dependencies = [
  "async-trait",
  "axum",
  "axum-server",
- "base64 0.22.1",
+ "base64 0.23.0",
  "bytes",
  "criterion",
  "ed25519-dalek",
@@ -1896,7 +1902,7 @@ dependencies = [
  "async-trait",
  "axum",
  "axum-server",
- "base64 0.22.1",
+ "base64 0.23.0",
  "bytes",
  "ed25519-dalek",
  "hex",
@@ -1948,7 +1954,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
- "base64 0.22.1",
+ "base64 0.23.0",
  "ed25519-dalek",
  "hex",
  "oci-distribution",
@@ -1973,7 +1979,7 @@ dependencies = [
  "async-trait",
  "axum",
  "axum-server",
- "base64 0.22.1",
+ "base64 0.23.0",
  "ed25519-dalek",
  "hex",
  "hmac 0.13.0",
