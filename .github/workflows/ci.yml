@@ -247,3 +247,45 @@ jobs:
               pass
           print("safety_kernel_client wheel OK: fingerprint parity + fail-closed verifier")
           PY
+
+  # ============================================================
+  # Python middleware: safety-kernel-middleware (FastAPI/Starlette).
+  # Depends on the safety-kernel-client wheel (crates/adapters/safety_kernel_py),
+  # which it builds from the repo before installing + testing.
+  # ============================================================
+  python-middleware:
+    name: Python middleware (safety-kernel-middleware)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Install Rust toolchain (stable)
+        uses: dtolnay/rust-toolchain@2c7215f132e9ebf062739d9130488b56d53c060c # stable
+        with:
+          toolchain: stable
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+
+      - name: Build + install safety-kernel-client (dependency)
+        working-directory: crates/adapters/safety_kernel_py
+        run: |
+          python -m pip install --upgrade pip maturin
+          maturin build --out dist
+          python -m pip install dist/*.whl
+
+      - name: Install middleware + test extras
+        run: python -m pip install "./py-middleware[test]" ruff
+
+      - name: ruff check + format
+        working-directory: py-middleware
+        run: |
+          ruff check safety_kernel_middleware
+          ruff format --check safety_kernel_middleware
+
+      - name: pytest (fail-closed behaviour)
+        working-directory: py-middleware
+        run: pytest safety_kernel_middleware/tests/ -v
